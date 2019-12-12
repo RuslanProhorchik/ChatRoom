@@ -12,12 +12,14 @@ import { MessageListComponent } from './components/message/list/message-list.com
 import { DisplayConversationComponent } from './components/display-conversation/display-conversation.component';
 
 import { MessageService } from './service/message.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,    
     MessageListComponent,
-    DisplayConversationComponent
+    DisplayConversationComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
