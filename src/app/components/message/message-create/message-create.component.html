@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Add message</span>
+        <form (ngSubmit)="onSubmit()" class="col s6">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input type="text" placeholder="Enter message" [(ngModel)]="message.text" name="text">
+                    <label>Message</label>
+                </div>
+                <input type="submit" value="Submit" class="btn">
+            </div>
+        </form>
+    </div>
+</div>

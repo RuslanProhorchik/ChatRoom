@@ -13,6 +13,8 @@ export class MessageService {
 
   constructor(public afs:AngularFirestore) { 
     //this.messages = this.afs.collection('messages').valueChanges();
+    this.messagesCollection = this.afs.collection('messages');
+
     this.messages = this.afs.collection('messages').snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Message;
@@ -24,5 +26,11 @@ export class MessageService {
 
   public getMessages() {
     return this.messages;
+  }
+
+  public addMessage(message: Message){
+    //this.afs.collection('messages').add(message);
+
+    this.messagesCollection.add(message);
   }
 }
