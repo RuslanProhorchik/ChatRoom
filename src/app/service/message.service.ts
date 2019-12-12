@@ -15,13 +15,17 @@ export class MessageService {
     //this.messages = this.afs.collection('messages').valueChanges();
     this.messagesCollection = this.afs.collection('messages');
 
-    this.messages = this.afs.collection('messages').snapshotChanges().pipe(map(changes => {
+    console.log(this.messagesCollection);
+
+    this.messages = this.afs.collection('messages', ref => ref.orderBy('createdAt', 'asc')).snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Message;
         data.id = a.payload.doc.id;
         return data;
       });
     }));
+
+    console.log(this.messages);
   }
 
   public getMessages() {
@@ -30,7 +34,6 @@ export class MessageService {
 
   public addMessage(message: Message){
     //this.afs.collection('messages').add(message);
-
     this.messagesCollection.add(message);
   }
 }

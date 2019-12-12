@@ -22,6 +22,7 @@ export class MessageCreateComponent implements OnInit {
 
   public onSubmit() {
     if(this.message.text != '') {
+      this.message.createdAt = new Date(Date.now());
       this.messageService.addMessage(this.message);
 
       this.clearFields();
