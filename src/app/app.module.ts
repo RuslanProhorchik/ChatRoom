@@ -7,14 +7,17 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ItemsComponent } from './components/items/items.component';
+
+import { MessageListComponent } from './components/message/list/message-list.component';
+import { DisplayConversationComponent } from './components/display-conversation/display-conversation.component';
 
 import { MessageService } from './service/message.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ItemsComponent
+    AppComponent,    
+    MessageListComponent,
+    DisplayConversationComponent
   ],
   imports: [
     BrowserModule,

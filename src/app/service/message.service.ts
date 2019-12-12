@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MessageService {
-  messagesCollection: AngularFirestoreCollection<Message>;
+  messagesCollection: AngularFirestoreCollection<Message>;  
   messages: Observable<Message[]>;
 
   constructor(public afs:AngularFirestore) { 

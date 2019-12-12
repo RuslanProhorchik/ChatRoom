@@ -1,4 +1,3 @@
-export interface Message {
-    id?: string;
+export interface Message {    
     text?: string;
 }
