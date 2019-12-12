@@ -1,0 +1,35 @@
+{
+    "RequestURL": "https://nsoft-global.slack.com/api/chat.postMessage?_x_id=451cf253-1574932254.455&_x_csid=DRSGDstxIU0&slack_route=TQR08J1CK&_x_version_ts=1574901313&_x_gantry=true",
+    "RequestData": {
+        "channel": "DR2E386RW",
+        "ts": "1574932254.xxxxx2",
+        "type": "message",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Вот и связались!"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "messageSendTrace": [
+            {
+                "object": "Object"
+            }
+        ],
+        "include_channel_perm_error": true,
+        "client_msg_id": "3a1f3f20-0298-4cee-aa1f-f68dbb933707",
+        "token": "xoxc-841008613427-852476736032-852486548725-45f2b47f43f335d8f31b8c1cbea9d19a596d30edecefac31a1229bdfb1ca96f1",
+        "_x_reason": "webapp_message_send",
+        "_x_mode": "online",
+        "_x_sonic": true
+    }
+}

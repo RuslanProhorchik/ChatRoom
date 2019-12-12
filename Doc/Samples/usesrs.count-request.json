@@ -1,0 +1,7 @@
+{
+    "RequestURL": "https://edgeapi.slack.com/cache/TQR08J1CK/users/counts",
+    "RequestPayload": {
+        "token": "xoxc-841008613427-852476736032-852486548725-45f2b47f43f335d8f31b8c1cbea9d19a596d30edecefac31a1229bdfb1ca96f1",
+        "channel": "DQUG1NF97"
+    }
+}

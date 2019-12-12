@@ -1,0 +1,9 @@
+{
+    "RequestURL": "https://nsoft-global.slack.com/api/team.whatsNew?_x_id=451cf253-1574928527.533&_x_csid=I3u93BS5_5c&slack_route=TQR08J1CK&_x_version_ts=1574901313&_x_gantry=true",
+    "RequestData": {
+        "token": "xoxc-841008613427-852476736032-852486548725-45f2b47f43f335d8f31b8c1cbea9d19a596d30edecefac31a1229bdfb1ca96f1",
+        "_x_reason": "boot-team",
+        "_x_mode": "online",
+        "_x_sonic": true
+    }
+}

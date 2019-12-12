@@ -1,0 +1,61 @@
+{
+    "ok": true,
+    "oldest": "1574932361.000900",
+    "messages": [
+        {
+            "client_msg_id": "1a395e56-25ff-4648-8c86-42b81d5f2d50",
+            "type": "message",
+            "text": "Send send send!!!",
+            "user": "UR2E0MN0Y",
+            "ts": "1574933399.001300",
+            "team": "TQR08J1CK",
+            "blocks": [
+                {
+                    "type": "rich_text",
+                    "block_id": "JFDf",
+                    "elements": [
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "Send send send!!!"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "client_msg_id": "3a1f3f20-0298-4cee-aa1f-f68dbb933707",
+            "type": "message",
+            "text": "\u0412\u043e\u0442 \u0438 \u0441\u0432\u044f\u0437\u0430\u043b\u0438\u0441\u044c!",
+            "user": "UR2E0MN0Y",
+            "ts": "1574932361.000900",
+            "team": "TQR08J1CK",
+            "blocks": [
+                {
+                    "type": "rich_text",
+                    "block_id": "ARhx",
+                    "elements": [
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "\u0412\u043e\u0442 \u0438 \u0441\u0432\u044f\u0437\u0430\u043b\u0438\u0441\u044c!"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "has_more": false,
+    "deleted": [],
+    "pin_count": 0,
+    "channel_actions_ts": null,
+    "channel_actions_count": 0
+}

@@ -1,0 +1,14 @@
+{
+    "RequestURL": "https://nsoft-global.slack.com/api/conversations.view?_x_id=noversion-1574928527.254&_x_version_ts=noversion&_x_gantry=true",
+    "RequestData": {
+        "token": "xoxc-841008613427-852476736032-852486548725-45f2b47f43f335d8f31b8c1cbea9d19a596d30edecefac31a1229bdfb1ca96f1",
+        "canonical_avatars": true,
+        "no_user_profile": true,
+        "ignore_replies": true,
+        "no_self": true,
+        "include_full_users": true,
+        "no_members": true,
+        "channel": "DQUG1NF97",
+        "_x_sonic": true
+    }
+}

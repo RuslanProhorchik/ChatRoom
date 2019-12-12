@@ -1,0 +1,84 @@
+{
+    "ok": true,
+    "updates": [
+        {
+            "timestamp": 1573754400,
+            "title": "New ways to write and invite in channels",
+            "description": "<p>It\u2019s now easier to create and preview formatted messages in Slack. Hitting the <i class=\"c-icon c-icon--inherit c-icon--text\"><\/i> button as you type brings up a formatting toolbar, allowing you to bold key words, start a bulleted list and more.<\/p>\n\t\t\t\t\t\t<p>It\u2019s also easier to invite many members into a channel at once. Simply paste a list of display names or emails into the channel invite window to add up to 1,000 people in just a few clicks.<\/p>",
+            "url": "https:\/\/slackhq.com\/new-slack-features-invites-message-formatting?utm_source=whatsnew",
+            "url_title": "Learn more on our blog",
+            "html": true
+        },
+        {
+            "timestamp": 1571040000,
+            "title": "Dark mode",
+            "description": "<p>Whether you\u2019re working in a low-light environment or just need to give your eyes a rest, dark mode has come to Slack. You can access it from the Themes section of your preferences and if you\u2019re on the latest Mac desktop app (4.1.0) you can sync it to your operating system too.<\/p>",
+            "url": "https:\/\/slackhq.com\/dark-mode-for-slack-desktop",
+            "url_title": "Learn more on our blog",
+            "html": true
+        },
+        {
+            "timestamp": 1566406800,
+            "title": "In case you missed it",
+            "description": "<p>We\u2019ve made Slack even easier to use\u2014with announcement channels, longer channel names and a simpler way to find the person you\u2019re looking for. There\u2019s a whole lot more, so read our rundown and start taking advantage of these features today.<\/p>",
+            "url": "https:\/\/slackhq.com\/new-slack-features-search-calls-channels?utm_medium=in-prod&utm_source=in-prod&utm_campaign=cd_in-prod_in-prod_all__all_cr-whatsnew_ym-201908",
+            "url_title": "Learn more on our blog",
+            "html": true
+        },
+        {
+            "timestamp": 1560276001,
+            "title": "In case you missed it",
+            "description": "From a dedicated drafts section in your channel sidebar to dark mode on mobile, there\u2019s a handful of new features that help Slack better fit the way you work. To help you take advantage of all our latest features, read our rundown of what\u2019s new.",
+            "url": "https:\/\/slackhq.com\/in-case-you-missed-it-drafts-email-dark-mode?utm_source=whatsnew",
+            "url_title": "Learn more on our blog"
+        },
+        {
+            "timestamp": 1554825600,
+            "title": "New apps for Office 365 and G Suite",
+            "description": "<p>Automatically update your Slack status based on your calendar, respond to meeting invites, send emails into Slack, and more with the new Office 365 and G Suite apps for Slack.<\/p><p>Connect the tools you use every day like your calendar, email, and files with Slack to simplify common, everyday tasks.<\/p>",
+            "url_title": "Connect your daily tools with Slack",
+            "url": "https:\/\/slack.com\/apps\/category\/AtHC5Q7RUJ-daily-tools?cvosrc=in-prod.whatsnew.whatsnew_office365launch&cvo_creative=office365launch_whatsnew&utm_medium=in-prod&utm_source=whatsnew&utm_campaign=d_in-prod_whatsnew_us_en__ob-null_cr-office365launch_whatsnew_ym-201904",
+            "html": true
+        },
+        {
+            "timestamp": 1554220802,
+            "title": "Discover new channels with search",
+            "description": "<p>With a newly dedicated \u201cChannels\u201d tab in search results, it\u2019s now easier to discover and join new-to-you channels across your organization. Whether or not you know a channel\u2019s full name, you can find channels with a name, purpose, or frequently discussed topic that match your search. <\/p>",
+            "url": "https:\/\/bit.ly\/2YH0DC8",
+            "url_title": "Learn more on our blog",
+            "html": true
+        },
+        {
+            "timestamp": 1554220800,
+            "title": "Give productivity a boost with Slack Tips",
+            "description": "<p>Ever feel like you could be getting more out of Slack? Good news! There are dozens of tips about getting more out of Slack in the all-new, aptly-named Slack Tips.<\/p><p>From hosting a daily standup to monitoring marketing analytics, Slack Tips has productivity-boosting how-to\u2019s for just about everyone. Discover how to make your work day a little simpler, no matter what work you do. <\/p>",
+            "url_title": "Check out Slack Tips",
+            "url": "https:\/\/slack.com\/slack-tips?cvosrc=email.email.email_slack_tips_announcement&cvo_creative=slacktips_whatsnew&utm_medium=in-prod&utm_source=in-prod&utm_campaign=d_in-prod_in-prod_us_en__ob-null_cr-slacktips_whatsnew_ym-201904",
+            "html": true
+        },
+        {
+            "timestamp": 1547665200,
+            "title": "Say hello, new look",
+            "description": "<p>You may notice things starting to look a little different around here \u2014 a little fresher, a little simpler, and (we think) a little better.<\/p>\n\t\t\t\t<p>As of today, you\u2019ll see a new app icon wherever you use Slack. In the coming months, you\u2019ll see new looks, new images, and things that feel more put together. Everything else remains, reassuringly, the same.<\/p>",
+            "url": "https:\/\/slackhq.com\/say-hello-new-logo",
+            "url_title": "Learn more on our blog",
+            "html": true
+        },
+        {
+            "timestamp": 1545159600,
+            "title": "In case you missed it",
+            "description": "<p>Some small-but-nifty improvements to control and convenience have recently made their way into Slack. From choosing how long you want your status displayed to sharing OneDrive files without leaving Slack, here\u2019s a roundup of some of the most notable updates you can start using today.<\/p>",
+            "url": "https:\/\/slackhq.com\/in-case-you-missed-it-improvements-to-status-notifications-and-more",
+            "url_title": "Learn more on our blog",
+            "html": true
+        },
+        {
+            "timestamp": 1533142800,
+            "title": "In case you missed it",
+            "description": "<p>You may have noticed a few changes in your Slack workspace recently &mdash; new emoji, clickable search filters, and more. In case it slipped under your radar, we\u2019ve rounded up some of our handiest updates for you.<\/p>",
+            "url_title": "Learn more on our blog",
+            "url": "https:\/\/slackhq.com\/in-case-you-missed-it-new-emoji-improved-search-and-more",
+            "html": true
+        }
+    ]
+}

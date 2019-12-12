@@ -1,0 +1,53 @@
+{
+    "results": [
+        {
+            "id": "UR2E0MN0Y",
+            "team_id": "TQR08J1CK",
+            "name": "prohorchikrv",
+            "deleted": false,
+            "color": "9f69e7",
+            "real_name": "Ruslan",
+            "tz": "Europe\/Minsk",
+            "tz_label": "Further-eastern European Time",
+            "tz_offset": 10800,
+            "profile": {
+                "title": "",
+                "phone": "",
+                "skype": "",
+                "real_name": "Ruslan",
+                "real_name_normalized": "Ruslan",
+                "display_name": "",
+                "display_name_normalized": "",
+                "fields": null,
+                "status_text": "",
+                "status_emoji": "",
+                "status_expiration": 0,
+                "avatar_hash": "g59fb6ac285e",
+                "email": "prohorchikrv@gmail.com",
+                "first_name": "Ruslan",
+                "last_name": "",
+                "image_24": "https:\/\/secure.gravatar.com\/avatar\/59fb6ac285e21a7ca0f8529aed0ca3ff.jpg?s=24\u0026d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-24.png",
+                "image_32": "https:\/\/secure.gravatar.com\/avatar\/59fb6ac285e21a7ca0f8529aed0ca3ff.jpg?s=32\u0026d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-32.png",
+                "image_48": "https:\/\/secure.gravatar.com\/avatar\/59fb6ac285e21a7ca0f8529aed0ca3ff.jpg?s=48\u0026d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-48.png",
+                "image_72": "https:\/\/secure.gravatar.com\/avatar\/59fb6ac285e21a7ca0f8529aed0ca3ff.jpg?s=72\u0026d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-72.png",
+                "image_192": "https:\/\/secure.gravatar.com\/avatar\/59fb6ac285e21a7ca0f8529aed0ca3ff.jpg?s=192\u0026d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-192.png",
+                "image_512": "https:\/\/secure.gravatar.com\/avatar\/59fb6ac285e21a7ca0f8529aed0ca3ff.jpg?s=512\u0026d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0012-512.png",
+                "status_text_canonical": "",
+                "team": "TQR08J1CK"
+            },
+            "is_admin": true,
+            "is_owner": true,
+            "is_primary_owner": true,
+            "is_restricted": false,
+            "is_ultra_restricted": false,
+            "is_bot": false,
+            "is_app_user": false,
+            "updated": 1574926610,
+            "locale": "en-US"
+        }
+    ],
+    "can_interact": {
+        "UR2E0MN0Y": true
+    },
+    "ok": true
+}

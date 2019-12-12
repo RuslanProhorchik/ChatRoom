@@ -1,0 +1,215 @@
+{
+    "ok": true,
+    "history": {
+        "ok": true,
+        "messages": [
+            {
+                "client_msg_id": "1a395e56-25ff-4648-8c86-42b81d5f2d50",
+                "type": "message",
+                "text": "Send send send!!!",
+                "user": "UR2E0MN0Y",
+                "ts": "1574933399.001300",
+                "team": "TQR08J1CK",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "JFDf",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "Send send send!!!"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "client_msg_id": "3a1f3f20-0298-4cee-aa1f-f68dbb933707",
+                "type": "message",
+                "text": "\u0412\u043e\u0442 \u0438 \u0441\u0432\u044f\u0437\u0430\u043b\u0438\u0441\u044c!",
+                "user": "UR2E0MN0Y",
+                "ts": "1574932361.000900",
+                "team": "TQR08J1CK",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "ARhx",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "\u0412\u043e\u0442 \u0438 \u0441\u0432\u044f\u0437\u0430\u043b\u0438\u0441\u044c!"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "client_msg_id": "01ea21e1-e035-45c0-9ae5-93fc103971ae",
+                "type": "message",
+                "text": "\u041f\u0440\u0438\u0432\u0435\u0442 \u0420\u0443\u0441\u043b\u0430\u043d!",
+                "user": "UR20MRF2Q",
+                "ts": "1574926776.000600",
+                "team": "TQR08J1CK",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "NDsk",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "\u041f\u0440\u0438\u0432\u0435\u0442 \u0420\u0443\u0441\u043b\u0430\u043d!"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "message",
+                "text": "Hi there, welcome to Slack!",
+                "user": "UR2E0MN0Y",
+                "ts": "1574926769.000500",
+                "team": "TQR08J1CK"
+            },
+            {
+                "client_msg_id": "58f74876-5da0-48cc-b509-483b13efd358",
+                "type": "message",
+                "text": "\u041f\u0440\u0438\u0432\u0435\u0442 \u041d\u0438\u043a\u0438\u0442\u0430!",
+                "user": "UR2E0MN0Y",
+                "ts": "1574926738.000200",
+                "team": "TQR08J1CK",
+                "blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "qpSR",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "text",
+                                        "text": "\u041f\u0440\u0438\u0432\u0435\u0442 \u041d\u0438\u043a\u0438\u0442\u0430!"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "has_more": false,
+        "channel_actions_ts": null,
+        "channel_actions_count": 0
+    },
+    "users": [
+        {
+            "id": "UR20MRF2Q",
+            "team_id": "TQR08J1CK",
+            "name": "nikitaslashchev",
+            "deleted": false,
+            "color": "4bbe2e",
+            "real_name": "Nikita",
+            "tz": "Europe\/Minsk",
+            "tz_label": "Further-eastern European Time",
+            "tz_offset": 10800,
+            "profile": {
+                "title": "",
+                "phone": "",
+                "skype": "",
+                "real_name": "Nikita",
+                "real_name_normalized": "Nikita",
+                "display_name": "Nikita",
+                "display_name_normalized": "Nikita",
+                "fields": [],
+                "status_text": "",
+                "status_emoji": "",
+                "status_expiration": 0,
+                "avatar_hash": "ga423f6d76a3",
+                "email": "nikitaslashchev@gmail.com",
+                "first_name": "Nikita",
+                "last_name": "",
+                "status_text_canonical": "",
+                "team": "TQR08J1CK"
+            },
+            "is_admin": false,
+            "is_owner": false,
+            "is_primary_owner": false,
+            "is_restricted": false,
+            "is_ultra_restricted": false,
+            "is_bot": false,
+            "is_app_user": false,
+            "updated": 1574926714,
+            "has_2fa": false
+        },
+        {
+            "id": "UR2E0MN0Y",
+            "team_id": "TQR08J1CK",
+            "name": "prohorchikrv",
+            "deleted": false,
+            "color": "9f69e7",
+            "real_name": "Ruslan",
+            "tz": "Europe\/Minsk",
+            "tz_label": "Further-eastern European Time",
+            "tz_offset": 10800,
+            "profile": {
+                "title": "",
+                "phone": "",
+                "skype": "",
+                "real_name": "Ruslan",
+                "real_name_normalized": "Ruslan",
+                "display_name": "",
+                "display_name_normalized": "",
+                "fields": null,
+                "status_text": "",
+                "status_emoji": "",
+                "status_expiration": 0,
+                "avatar_hash": "g59fb6ac285e",
+                "email": "prohorchikrv@gmail.com",
+                "first_name": "Ruslan",
+                "last_name": "",
+                "status_text_canonical": "",
+                "team": "TQR08J1CK"
+            },
+            "is_admin": true,
+            "is_owner": true,
+            "is_primary_owner": true,
+            "is_restricted": false,
+            "is_ultra_restricted": false,
+            "is_bot": false,
+            "is_app_user": false,
+            "updated": 1574926610,
+            "has_2fa": false
+        }
+    ],
+    "bots": [],
+    "channels": [],
+    "emojis": [],
+    "im": {
+        "id": "DR2E386RW",
+        "created": 1574926682,
+        "is_frozen": false,
+        "is_archived": false,
+        "is_im": true,
+        "is_org_shared": false,
+        "user": "UR20MRF2Q",
+        "last_read": "1574933399.001300",
+        "latest": "1574933399.001300",
+        "unread_count": 0,
+        "unread_count_display": 0,
+        "is_open": true
+    }
+}
