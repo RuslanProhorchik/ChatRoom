@@ -10,6 +10,8 @@ import { Message } from '../../../models/message';
 export class MessageListComponent implements OnInit {
   
   messages: Message[];
+  editState: boolean;
+  messageToEdit: Message;
 
   constructor(private messagesService: MessageService) { }
 
@@ -17,6 +19,28 @@ export class MessageListComponent implements OnInit {
     this.messagesService.getMessages().subscribe(messages => {
       this.messages = messages;
     });
+
+    this.editState = false;
   }
 
+  public deleteMessage(event, message: Message){
+    this.clearEditState();
+    this.messagesService.deleteMessage(message);
+  }
+
+  public setEditState(message: Message){
+    this.editState = true;
+    this.messageToEdit = message;
+  }
+
+  public updateMessage(message: Message){
+    this.messagesService.updateMessage(message);
+    this.clearEditState();
+  }
+
+  public clearEditState() {
+    this.editState = false;
+    this.messageToEdit = null;
+  }
+  
 }

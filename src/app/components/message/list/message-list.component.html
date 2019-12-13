@@ -1,10 +1,27 @@
-<div *ngIf="messages?.length > 0; else noMessages ">
-        <ul *ngFor="let message of messages" class="collection">
-            <li class="collection-item"><strong>{{message.id}}</strong> {{message.text}}</li>
-        </ul>
-    
-    </div>
-    
-    <ng-template #noMessages>    
-        <h4>No messages</h4>
-    </ng-template>
+<div *ngIf="messages?.length > 0; else noMessages ">        
+    <ul *ngFor="let message of messages" class="collection"> 
+        <li class="collection-item"><strong>{{message.id}}</strong> {{message.text}}        
+            <a href="#" class="secondary-content">
+                <i *ngIf="!(editState && messageToEdit.id == message.id)" (click)="setEditState(message)" class="fa fa-pencil fa-fw"></i>                
+                <i *ngIf="editState && messageToEdit.id == message.id" (click)="clearEditState()" class="fa fa-compress fa-fw"></i>
+                <i *ngIf="!(editState && messageToEdit.id == message.id)" (click)="deleteMessage($event, message)" class="fa fa-trash-o fa-fw"></i>
+            </a>        
+
+            <div *ngIf="editState && messageToEdit.id == message.id">
+                <form (ngSubmit)="updateMessage(message)" class="col s6">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="text" placeholder="Enter message" [(ngModel)]="message.text" name="text">                            
+                        </div>
+                        <input type="submit" value="Edit" class="btn green">
+                        <button (click)="deleteMessage($event, message)" class="btn red">Delete</button>
+                    </div>
+                </form>        
+            </div>
+        </li>        
+    </ul>    
+</div>    
+
+<ng-template #noMessages>    
+    <h4>No messages</h4>
+</ng-template>

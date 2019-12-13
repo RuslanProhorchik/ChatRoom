@@ -10,12 +10,13 @@ import { map } from 'rxjs/operators';
 export class MessageService {
   messagesCollection: AngularFirestoreCollection<Message>;  
   messages: Observable<Message[]>;
+  messageDoc: AngularFirestoreDocument<Message>;
 
   constructor(public afs:AngularFirestore) { 
     //this.messages = this.afs.collection('messages').valueChanges();
     this.messagesCollection = this.afs.collection('messages');
 
-    console.log(this.messagesCollection);
+    //console.log(this.messagesCollection);
 
     this.messages = this.afs.collection('messages', ref => ref.orderBy('createdAt', 'asc')).snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
@@ -25,15 +26,24 @@ export class MessageService {
       });
     }));
 
-    console.log(this.messages);
+    //console.log(this.messages);
   }
 
   public getMessages() {
     return this.messages;
   }
 
-  public addMessage(message: Message){
-    //this.afs.collection('messages').add(message);
+  public addMessage(message: Message){    
     this.messagesCollection.add(message);
+  }
+
+  public deleteMessage(message: Message){
+    this.messageDoc = this.afs.doc(`messages/${message.id}`);
+    this.messageDoc.delete();
+  }
+
+  public updateMessage(message: Message){
+    this.messageDoc = this.afs.doc(`messages/${message.id}`);
+    this.messageDoc.update(message);
   }
 }

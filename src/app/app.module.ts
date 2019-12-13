@@ -9,12 +9,15 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { NavbarComponent } from './components/navbar/navbar.component';
+
 import { MessageListComponent } from './components/message/list/message-list.component';
+import { MessageCreateComponent } from './components/message/create/message-create.component';
 import { DisplayConversationComponent } from './components/display-conversation/display-conversation.component';
 
 import { MessageService } from './service/message.service';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { MessageCreateComponent } from './components/message/message-create/message-create.component';
+
+
 
 @NgModule({
   declarations: [
