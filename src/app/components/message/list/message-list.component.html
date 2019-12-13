@@ -8,13 +8,19 @@
             </a>        
 
             <div *ngIf="editState && messageToEdit.id == message.id">
-                <form (ngSubmit)="updateMessage(message)" class="col s6">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <input type="text" placeholder="Enter message" [(ngModel)]="message.text" name="text">                            
+                <form (ngSubmit)="updateMessage(message)">
+                    <div class="row valign-wrapper center-align">
+                        <div class="col s8">                                
+                            <div class="input-field">                            
+                                <input type="text" placeholder="Enter message" [(ngModel)]="message.text" name="text">                            
+                            </div>                            
+                        </div>                        
+                        <div class="col s2">                                                            
+                            <input type="submit" value="Edit" class="btn green">                            
                         </div>
-                        <input type="submit" value="Edit" class="btn green">
-                        <button (click)="deleteMessage($event, message)" class="btn red">Delete</button>
+                        <div class="col s2">
+                            <button (click)="deleteMessage($event, message)" class="btn red">Delete</button>                            
+                        </div>                                                                                                                            
                     </div>
                 </form>        
             </div>
