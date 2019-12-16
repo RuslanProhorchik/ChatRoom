@@ -5,6 +5,7 @@ import { FormsModule} from '@angular/forms';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { MessageCreateComponent } from './components/message/create/message-crea
 import { DisplayConversationComponent } from './components/display-conversation/display-conversation.component';
 
 import { MessageService } from './service/message.service';
+import { AuthService } from './service/auth.service';
 
 
 
@@ -32,9 +34,10 @@ import { MessageService } from './service/message.service';
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'chatroom'),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
-  providers: [MessageService],
+  providers: [MessageService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

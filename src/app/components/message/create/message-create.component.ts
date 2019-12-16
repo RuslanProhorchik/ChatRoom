@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Message } from 'src/app/models/message';
 import { MessageService } from 'src/app/service/message.service';
 
@@ -13,6 +13,8 @@ export class MessageCreateComponent implements OnInit {
     text: ''    
   };
 
+  //@Output() messageAdded = new EventEmitter<string>();
+
   constructor(private messageService: MessageService) {
 
    }
@@ -25,7 +27,9 @@ export class MessageCreateComponent implements OnInit {
       this.message.createdAt = new Date(Date.now());
       this.messageService.addMessage(this.message);
 
-      this.clearFields();
+      //this.messageAdded.emit(this.message.text);
+
+      this.clearFields();      
     }
   }
 
