@@ -8,7 +8,9 @@
 </div>
 
 <ng-template #login>
-    <button class="btn red" (click)="auth.emailSignin()">login with Email</button>
+    <!--<button class="btn red" (click)="auth.emailSignin()">login with Email</button>-->
+    <button class="btn pink" (click)="createUser()">Create User</button>
+    {{errorMessage}}
 </ng-template>
 
 <div class="container">  

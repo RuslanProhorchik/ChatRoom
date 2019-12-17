@@ -3,69 +3,69 @@ import { Router } from '@angular/router';
 
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { 
-  AngularFirestore, 
-  AngularFirestoreDocument
-} from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
-import { Observable, of } from 'rxjs';
-import { switchMap, switchMapTo } from 'rxjs/operators';
+import { Observable, of, BehaviorSubject } from 'rxjs';
+import { switchMap, } from 'rxjs/operators';
 
-import { User } from '../models/user';
+import { CreateUserModel, LoginUserModel } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<User>;
-  isError: boolean;
-  error: any;
+  newUser: CreateUserModel;
+  private eventAuthError = new BehaviorSubject<string>("");
+  eventAuthError$ = this.eventAuthError.asObservable();
 
   constructor(
     private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
     private route: Router
   ) { 
-
-    this.user$ = this.afAuth.authState.pipe(
-      switchMap(user => {
-        if(user) {
-          return this.afs.doc<User>(`usesr/${user.uid}`).valueChanges();
-        } else {
-          return of(null);
-        }
-      })
-    );
-
-    this.isError = false;
-    this.error = null;
   }
 
-  public async emailSignin() {  
-    const provider = new auth.EmailAuthProvider();
-    const credential = await this.afAuth.auth.signInWithPopup(provider);
-    console.log('Loggin user: ', credential.user);
-
-    return this.updateUserData(credential.user);
-  };
-
-  
-  
-  public async singOut() {
-    await this.afAuth.auth.signOut();
-    return this.route.navigate(['/']);
+  public getUserState(){
+    return this.afAuth.authState;
   }
 
-  private updateUserData({uid, email, displayName}: User) {
-    debugger;
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${uid}`);
+  public createUser(user: CreateUserModel) {    
+    this.afAuth.auth.createUserWithEmailAndPassword(user.Email, user.Password)
+    .then(userCredential => {
+      this.newUser = user;    
+      userCredential.user.updateProfile({
+        displayName: user.FirstName + ' ' + user.LastName,
+      });
 
-    const data = {
-      uid,
-      email,
-      displayName
-    };
-
-    return userRef.set(data, {merge: true});
+      this.insertUserData(userCredential);
+    })
+    .catch(error => {
+      this.eventAuthError.next(error);
+    });    
   }
+
+  private insertUserData(userCredential: firebase.auth.UserCredential) {
+    return this.afs.doc(`users/${userCredential.user.uid}`).set({
+      email: this.newUser.Email,
+      firstName: this.newUser.FirstName,
+      lastName: this.newUser.LastName
+    });
+  }
+
+  public logout() {
+     this.afAuth.auth.signOut();     
+     this.route.navigate(['/login']);
+   }
+
+   public login(user: LoginUserModel) {
+     this.afAuth.auth.signInWithEmailAndPassword(user.Email, user.Password).catch(
+       error => {
+        this.eventAuthError.next(error);
+       })
+       .then(userCredential => {
+         if(userCredential) {
+           this.route.navigate(['/home']);
+         }
+       });      
+   }
 }
