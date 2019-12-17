@@ -18,6 +18,9 @@ import { DisplayConversationComponent } from './components/display-conversation/
 
 import { MessageService } from './service/message.service';
 import { AuthService } from './service/auth.service';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 
 
@@ -27,7 +30,10 @@ import { AuthService } from './service/auth.service';
     MessageListComponent,
     DisplayConversationComponent,
     NavbarComponent,
-    MessageCreateComponent
+    MessageCreateComponent,
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
