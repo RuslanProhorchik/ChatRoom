@@ -61,7 +61,7 @@ export class AuthService {
    public login(user: LoginUserModel) {
      this.afAuth.auth.signInWithEmailAndPassword(user.Email, user.Password).catch(
        error => {
-        this.eventAuthError.next(error);
+        this.eventAuthError.next(error.message);
        })
        .then(userCredential => {
          if(userCredential) {

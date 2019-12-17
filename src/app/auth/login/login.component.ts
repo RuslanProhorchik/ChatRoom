@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/service/auth.service';
+import { LoginUserModel } from 'src/app/models/interfaces';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginUserForm: FormGroup;
+  errorMessage: string;
 
-  ngOnInit() {
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService) { 
+      
+      this.auth.eventAuthError$.subscribe(data => {    
+        this.errorMessage = data;      
+      });    
   }
 
+  ngOnInit() {
+    this.initForm();
+  }
+  get _email(){
+    return this.loginUserForm.get('email');
+  }
+  
+  get _password(){
+    return this.loginUserForm.get('password');
+  }
+
+  private initForm() {
+    this.loginUserForm = this.fb.group({    
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.min(8)]]
+    });
+  }
+
+  public onSubmit(){
+    let logginUser: LoginUserModel = {
+        Email: this.loginUserForm.get('email').value,
+        Password: this.loginUserForm.get('password').value
+     };
+
+     this.auth.login(logginUser);
+  }
 }

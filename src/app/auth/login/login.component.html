@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Login</span>
+        <form [formGroup]="loginUserForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="email" placeholder="Enter email" formControlName="email">                    
+                    <label>Email</label>
+                    <div *ngIf="_email.invalid && (_email.touched || _email.dirty)">
+                        <span *ngIf="_email.errors?.required">Field is required</span>
+                        <span *ngIf="_email.errors?.email">Wrong email address</span>                      
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <input type="password" placeholder="Enter password" formControlName="password">                    
+                    <label>User password</label>
+                    <div *ngIf="_password.invalid && (_password.touched || _password.dirty)">
+                        <span *ngIf="_password.errors?.required">Field is required</span>
+                        <span *ngIf="_password.errors?.min">Password must be great than 8 symbols</span>                      
+                    </div>
+                </div>
+                <div>
+                    <strong>{{errorMessage}}</strong>
+                </div>
+            </div>
+            <div class="row center-align">
+                <input type="submit" value="Login user" class="btn">        
+            </div>
+        </form>
+    </div>
+</div>
