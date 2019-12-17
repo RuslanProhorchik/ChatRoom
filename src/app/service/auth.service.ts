@@ -38,9 +38,10 @@ export class AuthService {
       });
 
       this.insertUserData(userCredential);
+      this.route.navigate(['/login']);
     })
     .catch(error => {
-      this.eventAuthError.next(error);
+      this.eventAuthError.next(error.message);
     });    
   }
 
