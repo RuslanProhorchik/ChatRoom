@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       firstname: ['', [Validators.required]],
       lastname: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.min(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -57,10 +57,8 @@ export class RegisterComponent implements OnInit {
         LastName: this.registerUserForm.get('lastname').value,    
         Password: this.registerUserForm.get('password').value
      };
-
-    console.log(new_user);
-
     this.auth.createUser(new_user);
+    this.registerUserForm.reset();
   }
 
 }

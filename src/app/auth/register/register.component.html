@@ -6,39 +6,41 @@
                 <div class="input-field col s12">
                     <input type="email" placeholder="Enter email" formControlName="email">                    
                     <label>Email</label>
-                    <div *ngIf="_email.invalid && (_email.touched || _email.dirty)">
-                        <span *ngIf="_email.errors?.required">Field is required</span>
-                        <span *ngIf="_email.errors?.email">Wrong email address</span>                      
+                    <div *ngIf="_email.invalid && (_email.touched || _email.dirty)" class="validation-error">
+                        <span *ngIf="_email.errors?.required">Email is required</span>
+                        <span *ngIf="_email.errors?.email">Email must be a valid email address</span>                      
                     </div>
                 </div>
                 <div class="input-field col s6">
                     <input type="text" placeholder="Enter first name" formControlName="firstname">                    
                     <label>User first name</label>
-                    <div *ngIf="_firstname.invalid && (_firstname.touched || _firstname.dirty)">
-                        <span *ngIf="_firstname.errors?.required">Field is required</span>                        
+                    <div *ngIf="_firstname.invalid && (_firstname.touched || _firstname.dirty)" class="validation-error">
+                        <span *ngIf="_firstname.errors?.required">First name is required</span>                        
                     </div>
                 </div>
                 <div class="input-field col s6">
                     <input type="text" placeholder="Enter last name" formControlName="lastname">                    
                     <label>User last name</label>
-                    <div *ngIf="_lastname.invalid && (_lastname.touched || _lastname.dirty)">
-                        <span *ngIf="_lastname.errors?.required">Field is required</span>                        
+                    <div *ngIf="_lastname.invalid && (_lastname.touched || _lastname.dirty)" class="validation-error">
+                        <span *ngIf="_lastname.errors?.required">Last name is required</span>                        
                     </div>
                 </div>
                 <div class="input-field col s12">
                     <input type="password" placeholder="Enter password" formControlName="password">                    
                     <label>User password</label>
-                    <div *ngIf="_password.invalid && (_password.touched || _password.dirty)">
-                        <span *ngIf="_password.errors?.required">Field is required</span>
-                        <span *ngIf="_password.errors?.min">Password must be great than 8 symbols</span>                      
+                    <div *ngIf="_password.invalid && (_password.touched || _password.dirty)" class="validation-error">
+                        <span *ngIf="_password.errors?.required">Password is required</span>
+                        <span *ngIf="_password.errors?.minlength">Password must be at least {{_password.errors?.minlength.requiredLength}} characters long</span>                      
                     </div>
                 </div>
-                <div>
-                    <strong>{{errorMessage}}</strong>
+                <div *ngIf="errorMessage" class="input-field col s12 validation-error">
+                    <div class="center-align">
+                        {{errorMessage}}
+                    </div>    
                 </div>
             </div>
             <div class="row center-align">
-                <input type="submit" value="Register user" class="btn">        
+                <input type="submit" value="Register user" class="btn" [disabled]="!registerUserForm.valid">        
             </div>
             <div class="row center-align">
                 <div class="col-12">

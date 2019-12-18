@@ -8,8 +8,7 @@ import { LoginUserModel } from 'src/app/models/interfaces';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-
+export class LoginComponent implements OnInit {  
   loginUserForm: FormGroup;
   errorMessage: string;
 
@@ -22,7 +21,7 @@ export class LoginComponent implements OnInit {
       });    
   }
 
-  ngOnInit() {
+  ngOnInit() {    
     this.initForm();
   }
   get _email(){
@@ -36,7 +35,7 @@ export class LoginComponent implements OnInit {
   private initForm() {
     this.loginUserForm = this.fb.group({    
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.min(8)]]
+      password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
@@ -47,5 +46,7 @@ export class LoginComponent implements OnInit {
      };
 
      this.auth.login(logginUser);
+
+     this.loginUserForm.reset();
   }
 }
