@@ -9,26 +9,10 @@ import { CreateUserModel } from './models/interfaces';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ChatRoom';
-  errorMessage: string = '';
+  title = 'ChatRoom';  
 
   constructor(
-    public auth: AuthService
   ) {
-
-    this.auth.eventAuthError$.subscribe(data => {
-      this.errorMessage = data;
-    });
   }
 
-  public createUser() {
-    let newUser: CreateUserModel = {
-      Email: 'bbbb@gmail.com',
-      Password: '1234567890',
-      FirstName: 'Jon',
-      LastName: 'Doe'
-    };
-
-    this.auth.createUser(newUser);
-  }
 }

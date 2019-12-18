@@ -1,1 +1,9 @@
-<p>home works!</p>
+<p *ngIf="user">Logging i as {{user?.email}} - {{user?.displayName}} - {{user?.uid}}</p>
+
+<div class="container">
+    <div class="row">
+        <button (click)="register()" *ngIf="!user" class="btn red">Register</button>
+        <button (click)="login()" *ngIf="!user" class="btn red">Login</button>
+        <button (click)="logout()" *ngIf="user" class="btn red">Logout</button>                            
+    </div>
+</div>                                                                                                                            
