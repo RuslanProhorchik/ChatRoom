@@ -21,8 +21,8 @@ import { AuthService } from './service/auth.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-
-
+import { ConversationRoomComponent } from './components/conversation/room/conversation-room.component';
+import { ConversationDirectComponent } from './components/conversation/direct/conversation-direct.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,9 @@ import { RegisterComponent } from './auth/register/register.component';
     MessageCreateComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ConversationRoomComponent,
+    ConversationDirectComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<p *ngIf="user">Logging i as {{user?.email}} - {{user?.displayName}} - {{user?.uid}}</p>
+<!--<p *ngIf="user">Logging i as {{user?.email}} - {{user?.displayName}} - {{user?.uid}}</p>
 
 <div class="container">
     <div class="row">
@@ -6,4 +6,14 @@
         <button (click)="login()" *ngIf="!user" class="btn red">Login</button>
         <button (click)="logout()" *ngIf="user" class="btn red">Logout</button>                            
     </div>
-</div>                                                                                                                            
+</div>      -->                                                                                                                      
+
+<div class="row">
+    <div class="col s12 m4 l3">
+        <app-conversation-room></app-conversation-room>
+        <app-conversation-direct></app-conversation-direct>
+    </div>
+    <div class="col s12 m8 l9"> 
+        <app-display-conversation></app-display-conversation>
+    </div>
+  </div>
