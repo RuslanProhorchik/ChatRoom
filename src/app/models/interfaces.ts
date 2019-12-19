@@ -19,6 +19,13 @@ export interface DirectConversation {
 
 export interface IDirectConversationDisplay {
   conversation_uid: string;
-  name: string;
+  user_name: string;
+  user_uid: string;
   isActive: boolean;
+}
+
+export interface StoredConversation {
+  uid: string;
+  message_id: string;
+  users_uid: string[];
 }

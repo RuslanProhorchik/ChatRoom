@@ -2,6 +2,6 @@
     <li class="collection-header"><strong>Direct Messages</strong></li>
 
     <li *ngFor="let conversation of conversations" class="collection-item">
-        {{conversation.conversation_uid}}+{{conversation.name}}+{{conversation.isActive}}
+        {{conversation.user_uid}}+{{conversation.conversation_uid}}+{{conversation.isActive}}
     </li>
 </ul>
