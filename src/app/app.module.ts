@@ -23,6 +23,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ConversationRoomComponent } from './components/conversation/room/conversation-room.component';
 import { ConversationDirectComponent } from './components/conversation/direct/conversation-direct.component';
+import { AuthGuard } from './service/auth.guard';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { ConversationDirectComponent } from './components/conversation/direct/co
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [MessageService, AuthService],
+  providers: [MessageService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

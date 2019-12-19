@@ -1,24 +1,8 @@
-<!--
-
-<div *ngIf="auth.user$ | async as user; else login">
-  <pre>
-    {{user | json}}
-  </pre>
-  <hr>
-  <button class="btn" (click)="auth.signOut()">Sign Out</button>
-</div>
-
-<ng-template #login>
-    <button class="btn pink" (click)="createUser()">Create User</button>
-    {{errorMessage}}
-</ng-template>
-
-<div class="container">  
-  <app-display-conversation></app-display-conversation>
-</div>
--->
-<app-navbar></app-navbar>
-<div class="container">  
-  <router-outlet></router-outlet>
-</div>
-
+<div class="wrapper">
+  <app-navbar></app-navbar>
+  <main>
+    <div class="container">  
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+ </div>
