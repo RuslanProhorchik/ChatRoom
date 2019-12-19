@@ -7,29 +7,8 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  
-  user: firebase.User;
-
-  constructor(private auth: AuthService,
-    private router: Router) { }
-
+export class HomeComponent implements OnInit {    
+  constructor() { }
   ngOnInit() {
-    this.auth.getUserState()
-    .subscribe( user => {
-      this.user = user;
-    });
-  }
-
-  logout() {
-    this.auth.logout();
-  }
-
-  login() {
-    this.router.navigate(['/login']);
-  }
-
-  register() {
-    this.router.navigate(['/register']);    
   }
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ConversationDirectComponent } from './conversation-direct.component';
+import { DirectConversationComponent } from './direct-conversation.component';
 
-describe('ConversationDirectComponent', () => {
-  let component: ConversationDirectComponent;
-  let fixture: ComponentFixture<ConversationDirectComponent>;
+describe('DirectConversationComponent', () => {
+  let component: DirectConversationComponent;
+  let fixture: ComponentFixture<DirectConversationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ConversationDirectComponent ]
+      declarations: [ DirectConversationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ConversationDirectComponent);
+    fixture = TestBed.createComponent(DirectConversationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

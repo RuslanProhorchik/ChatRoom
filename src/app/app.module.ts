@@ -21,8 +21,8 @@ import { AuthService } from './service/auth.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { ConversationRoomComponent } from './components/conversation/room/conversation-room.component';
-import { ConversationDirectComponent } from './components/conversation/direct/conversation-direct.component';
+import { RoomConversationComponent } from './components/conversation/room/room-conversation.component';
+import { DirectConversationComponent } from './components/conversation/direct/direct-conversation.component';
 import { AuthGuard } from './service/auth.guard';
 
 @NgModule({
@@ -35,8 +35,8 @@ import { AuthGuard } from './service/auth.guard';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ConversationRoomComponent,
-    ConversationDirectComponent
+    RoomConversationComponent,
+    DirectConversationComponent
   ],
   imports: [
     BrowserModule,
