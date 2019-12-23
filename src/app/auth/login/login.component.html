@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">Login</span>
+        <form [formGroup]="loginUserForm" (ngSubmit)="onSubmit()" novalidate>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="email" placeholder="Enter email" formControlName="email">                    
+                    <label>Email</label>
+                    <div *ngIf="_email.invalid && (_email.touched || _email.dirty)" class="validation-error">
+                        <span *ngIf="_email.errors?.required">Email is required</span>
+                        <span *ngIf="_email.errors?.email">Email must be a valid email address</span>                      
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <input type="password" placeholder="Enter password" formControlName="password">                    
+                    <label>User password</label>
+                    <div *ngIf="_password.invalid && (_password.touched || _password.dirty)" class="validation-error">                        
+                        <span *ngIf="_password.errors?.required">Password is required</span>
+                        <span *ngIf="_password.errors?.minlength">Password must be at least {{_password.errors?.minlength.requiredLength}} characters long</span>                      
+                    </div>
+                </div>
+                <div *ngIf="errorMessage" class="input-field col s12 validation-error">
+                    <div class="center-align">
+                        {{errorMessage}}
+                    </div>    
+                </div>
+            </div>
+            <div class="row center-align">
+                <input type="submit" value="Login user" class="btn" [disabled]="!loginUserForm.valid">        
+            </div>
+            <div class="row center-align">
+                <div class="col-12">
+                    Not registered yet? 
+                    <a href="/register">Register Here</a> 
+                </div>                
+            </div>
+        </form>
+    </div>
+</div>

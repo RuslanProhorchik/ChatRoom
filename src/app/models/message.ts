@@ -1,4 +1,5 @@
-export interface Message {
+export interface Message {    
     id?: string;
     text?: string;
+    createdAt?: Date;
 }
