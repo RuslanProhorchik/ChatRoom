@@ -7,7 +7,7 @@ import {
 } from '@angular/fire/firestore';
 
 import { Observable } from 'rxjs';
-import { UserDetail } from '../models';
+import { UserDetail, IUserDetail } from '../models';
 import { map } from 'rxjs/operators';
 import { firestore } from 'firebase';
 
@@ -16,7 +16,11 @@ import { firestore } from 'firebase';
   providedIn: 'root'
 })
 export class UserDetailService {
-  users$: Observable<UserDetail[]>;
+  users$: Observable<IUserDetail[]>;
+  
+  //user$: Observable<IUserDetail>;  
+  
+  userInfoDoc: AngularFirestoreDocument<IUserDetail>;
 
   constructor(public afs:AngularFirestore) {
     // this.displayedConversatons$.pipe(
@@ -33,6 +37,40 @@ export class UserDetailService {
     //   error: console.log
     // });
    }
+
+   public getUserInfo(uid: string): IUserDetail {
+    
+    console.log(uid);    
+    // var docRef = this.afs.collection("users").doc(uid);
+
+    // docRef.ref.get().then(function(doc) {
+        
+    //   if (doc.exists) {     
+    //     console.log("Document data:", doc.data());            
+    //     this.user$ = doc.data();
+
+    //         // const obj = doc.data();                
+    //         // obj.id = doc.id;                
+    //         // return obj as IUserDetail;            
+            
+    //     } else {
+    //         // doc.data() will be undefined in this case
+    //         console.log("No such document!");            
+    //     }
+    // }).catch(function(error) {
+    //     console.log("Error getting document:", error);
+    // });
+     
+    return {      
+      uid: 'id1',
+      email: 'id1@gmail.com',
+      firstName: 'F1',
+      lastName: 'F2',
+      displayName: 'F1 F2'
+    };
+   }
+
+
 
   //  piblic getUsersDetail(users_uid: string[]): void {
   //  }

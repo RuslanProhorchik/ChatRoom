@@ -20,21 +20,21 @@ export class DirectConversationComponent implements OnInit {
     , private dcs: DirectConversationService
     , private uds: UserDetailService) { 
 
-      // this.auth.getUserState()
-      // .subscribe(user => {
-      //   this.user = user;
-        
-      //   this.dcs.getDisplayedConversation(user.uid).subscribe(conversations => {       
-      //     this.conversations = conversations;
-          
-      //     this.uds.getUsers(this.conversations.map(value => value.user_uid))
-      //     .subscribe(usersInfo => {
-      //       this.users = usersInfo;
-      //     });
-      //   });
-
-      // });              
-    }
+      this.auth.getUserState()      
+      .subscribe(user => {
+        this.user = user;
+                 
+        this.dcs.getDisplayedConversation(user.uid).subscribe(conversations => {       
+           this.conversations = conversations;
+              
+          this.conversations.forEach(element => {
+            element.user_name = this.uds.getUserInfo(element.user_uid).displayName;                 
+            console.log(element.user_name);
+          //       this.uds.getUserInfo(element.user_uid);
+             });
+          });
+        });              
+  }
 
   ngOnInit() {
   }
