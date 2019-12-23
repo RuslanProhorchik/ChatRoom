@@ -8,7 +8,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { switchMap, } from 'rxjs/operators';
 
-import { CreateUserModel, LoginUserModel } from '../models/interfaces';
+import { CreateUserModel, LoginUserModel } from '../models';
 
 @Injectable({
   providedIn: 'root'

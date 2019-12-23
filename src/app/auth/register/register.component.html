@@ -35,7 +35,7 @@
                 </div>
                 <div *ngIf="errorMessage" class="input-field col s12 validation-error">
                     <div class="center-align">
-                        {{errorMessage}}
+                        {{errorMessage | async}}
                     </div>    
                 </div>
             </div>

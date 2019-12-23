@@ -1,8 +1,5 @@
 import { Component } from '@angular/core';
 
-import { AuthService } from './service/auth.service';
-import { CreateUserModel } from './models/interfaces';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

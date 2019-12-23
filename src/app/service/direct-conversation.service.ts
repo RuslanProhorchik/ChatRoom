@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DirectConversation, IDirectConversationDisplay, StoredConversation } from '../models/interfaces';
+import { DirectConversation, IDirectConversationDisplay, StoredConversation } from '../models';
 import { 
   AngularFirestore, 
   AngularFirestoreCollection, 
@@ -16,7 +16,7 @@ import { DirectConversationDisplay } from '../models/DirectConversationDisplay';
 })
 export class DirectConversationService {
   directConvers: Observable<DirectConversation[]>;
-  displayedConversatons: Observable<IDirectConversationDisplay[]>;
+  displayedConversatons$: Observable<IDirectConversationDisplay[]>;
 
   constructor(private afs: AngularFirestore) { 
     // this.displayedConversatons = new Observable<IDirectConversationDisplay[]>((observer) => {      
@@ -66,7 +66,7 @@ export class DirectConversationService {
     //   });
     // }));
 
-    this.displayedConversatons = this.afs.collection(
+    this.displayedConversatons$ = this.afs.collection(
       'conversations'
       , ref=>ref.where('users_uid','array-contains', userUID)
       )
@@ -83,8 +83,9 @@ export class DirectConversationService {
                           
              return data;
            });
-         }));
-
-    return this.displayedConversatons;
+         })       
+      );
+      
+    return this.displayedConversatons$;
   }
 }

@@ -5,7 +5,7 @@ import {
   AngularFirestoreDocument 
 } from '@angular/fire/firestore';
 
-import { Message } from '../models/message';
+import { Message } from '../models';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 

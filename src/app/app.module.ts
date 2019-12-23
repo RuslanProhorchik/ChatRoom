@@ -16,14 +16,15 @@ import { MessageListComponent } from './components/message/list/message-list.com
 import { MessageCreateComponent } from './components/message/create/message-create.component';
 import { DisplayConversationComponent } from './components/display-conversation/display-conversation.component';
 
-import { MessageService } from './service/message.service';
-import { AuthService } from './service/auth.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { RoomConversationComponent } from './components/conversation/room/room-conversation.component';
 import { DirectConversationComponent } from './components/conversation/direct/direct-conversation.component';
 import { AuthGuard } from './service/auth.guard';
+import { UserService } from './service/user.service';
+import { MessageService } from './service/message.service';
+import { AuthService } from './service/auth.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { AuthGuard } from './service/auth.guard';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [MessageService, AuthService, AuthGuard],
+  providers: [MessageService, AuthService, AuthGuard, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

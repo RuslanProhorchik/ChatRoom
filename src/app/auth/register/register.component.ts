@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
-import { CreateUserModel } from 'src/app/models/interfaces';
+import { CreateUserModel } from 'src/app/models';
 
 @Component({
   selector: 'app-register',
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
     private auth: AuthService
   ) {         
     this.auth.eventAuthError$.subscribe(data => {    
-      this.errorMessage = data;      
+     this.errorMessage = data;      
     });
   }
 
