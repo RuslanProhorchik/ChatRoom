@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
-import { Observable, of, BehaviorSubject } from 'rxjs';
-import { switchMap, } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
-import { CreateUserModel, LoginUserModel } from '../models';
+import { CreateUserModel, LoginUserModel, UserDetail } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-  newUser: CreateUserModel;
+export class AuthService {  
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
 
@@ -29,27 +26,33 @@ export class AuthService {
     return this.afAuth.authState;
   }
 
-  public createUser(user: CreateUserModel) {    
+  public createUser(user: CreateUserModel) {
+    let newUser: UserDetail;
+
     this.afAuth.auth.createUserWithEmailAndPassword(user.Email, user.Password)
-    .then(userCredential => {
-      this.newUser = user;    
+    .then(userCredential => {      
+      newUser = new UserDetail(user);
+      newUser.uid = userCredential.user.uid;
+
       userCredential.user.updateProfile({
-        displayName: user.FirstName + ' ' + user.LastName,
+        displayName: newUser.displayName
       });
 
-      this.insertUserData(userCredential);
-      this.route.navigate(['/login']);
+      this.insertUserData(newUser);
+      this.logout();            
     })
     .catch(error => {
       this.eventAuthError.next(error.message);
     });    
   }
 
-  private insertUserData(userCredential: firebase.auth.UserCredential) {
-    return this.afs.doc(`users/${userCredential.user.uid}`).set({
-      email: this.newUser.Email,
-      firstName: this.newUser.FirstName,
-      lastName: this.newUser.LastName
+  private insertUserData(userInfo: UserDetail) {
+    return this.afs.doc(`users/${userInfo.uid}`).set({
+      email: userInfo.email,
+      firstName: userInfo.firstName,
+      lastName: userInfo.lastName,
+      displayName: userInfo.displayName,
+      uid: userInfo.uid
     });
   }
 
