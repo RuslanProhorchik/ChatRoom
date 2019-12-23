@@ -22,7 +22,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { RoomConversationComponent } from './components/conversation/room/room-conversation.component';
 import { DirectConversationComponent } from './components/conversation/direct/direct-conversation.component';
 import { AuthGuard } from './service/auth.guard';
-import { UserService } from './service/user.service';
+import { UserDetailService } from './service/user-detail.service';
 import { MessageService } from './service/message.service';
 import { AuthService } from './service/auth.service';
 
@@ -48,7 +48,7 @@ import { AuthService } from './service/auth.service';
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [MessageService, AuthService, AuthGuard, UserService],
+  providers: [MessageService, AuthService, AuthGuard, UserDetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

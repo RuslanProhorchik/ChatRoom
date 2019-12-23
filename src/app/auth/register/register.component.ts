@@ -52,11 +52,12 @@ export class RegisterComponent implements OnInit {
 
   public onSubmit(){
     let new_user: CreateUserModel = {
-        Email: this.registerUserForm.get('email').value,
-        FirstName: this.registerUserForm.get('firstname').value,
-        LastName: this.registerUserForm.get('lastname').value,    
-        Password: this.registerUserForm.get('password').value
+        Email: this._email.value,
+        FirstName: this._firstname.value,
+        LastName: this._lastname.value,    
+        Password: this._password.value
      };
+     
     this.auth.createUser(new_user);
     this.registerUserForm.reset();
   }

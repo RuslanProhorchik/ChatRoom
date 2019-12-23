@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IDirectConversationDisplay, User } from 'src/app/models';
+import { IDirectConversationDisplay, UserDetail } from 'src/app/models';
 import { DirectConversationService } from 'src/app/service/direct-conversation.service';
 import { DirectConversationDisplay } from 'src/app/models/DirectConversationDisplay';
 import { AuthService } from 'src/app/service/auth.service';
-import { UserService } from 'src/app/service/user.service';
+import { UserDetailService } from 'src/app/service/user-detail.service';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -18,7 +18,7 @@ export class DirectConversationComponent implements OnInit {
   
   constructor(private auth: AuthService
     , private dcs: DirectConversationService
-    , private us: UserService) { 
+    , private uds: UserDetailService) { 
 
       // this.auth.getUserState()
       // .subscribe(user => {
