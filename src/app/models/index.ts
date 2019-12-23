@@ -1,4 +1,4 @@
-export * from './user';
+export * from './user-detail';
 export * from './message';
 export * from './CreateUserModel';
 export * from './LoginUserModel';

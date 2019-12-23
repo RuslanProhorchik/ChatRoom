@@ -7,7 +7,7 @@ import {
 } from '@angular/fire/firestore';
 
 import { Observable } from 'rxjs';
-import { User } from '../models';
+import { UserDetail } from '../models';
 import { map } from 'rxjs/operators';
 import { firestore } from 'firebase';
 
@@ -15,8 +15,8 @@ import { firestore } from 'firebase';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  users$: Observable<User[]>;
+export class UserDetailService {
+  users$: Observable<UserDetail[]>;
 
   constructor(public afs:AngularFirestore) {
     // this.displayedConversatons$.pipe(
