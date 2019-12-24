@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { BehaviorSubject } from 'rxjs';
 
 import { CreateUserModel, LoginUserModel, UserDetail } from '../models';
+import { map, tap, take } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,32 @@ export class AuthService {
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
 
+  user: firebase.User;
+
   constructor(
     private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
     private route: Router
   ) { 
+
+    this.getUserState()
+    .subscribe( user => {
+      this.user = user;
+    });
+
+  }
+  
+  public redirectIfAuthorized(){      
+    this.getUserState().pipe(
+      take(1),
+      map(user => !!user),
+      tap(loggedIn => {
+        return loggedIn;
+      })      
+    ).subscribe(result => {
+      console.log('User is authorized - ' + result);
+      this.route.navigate(['/home']);
+    });
   }
 
   public getUserState(){
@@ -62,6 +84,7 @@ export class AuthService {
    }
 
    public login(user: LoginUserModel) {
+
      this.afAuth.auth.signInWithEmailAndPassword(user.Email, user.Password).catch(
        error => {
         this.eventAuthError.next(error.message);

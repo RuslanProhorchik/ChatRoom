@@ -19,10 +19,13 @@ export class LoginComponent implements OnInit {
       this.auth.eventAuthError$.subscribe(data => {    
         this.errorMessage = data;      
       });    
+
+      this.auth.redirectIfAuthorized();
   }
 
-  ngOnInit() {    
-    this.initForm();
+  ngOnInit() {        
+
+    this.initForm();    
   }
   get _email(){
     return this.loginUserForm.get('email');
