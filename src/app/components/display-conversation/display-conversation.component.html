@@ -1,5 +1,13 @@
 <div class="container">    
-    <app-message-list></app-message-list>
+    <!--<app-message-list></app-message-list*ngIf="isLoaded">-->
     <app-message-create></app-message-create>
-    <!--<app-message-create (messageAdded)="emitMessageAdded($event)"></app-message-create>-->
+    {{channelUid}}    
+    <button (click)="initSubcollection()">Init Subcollection</button>
 </div>
+<!--
+<div *ngIf="!isLoaded" class="container">   
+    <strong>No messages</strong>
+    <button (click)="addMessage()">Create message</button>
+</div>
+-->
+

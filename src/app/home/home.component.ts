@@ -8,7 +8,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {    
+  activeOwnerUid: string;
+  activeMessagesUid: string;
+
   constructor() { }
+
   ngOnInit() {
+    // this.activeOwnerUid='activeOwnerUid';
+    // this.activeMessagesUid = 'activeMessagesUid';    
+  }
+
+  public onMessageChannelChanged(messages_uid: string){
+    this.activeMessagesUid = messages_uid;
   }
 }
