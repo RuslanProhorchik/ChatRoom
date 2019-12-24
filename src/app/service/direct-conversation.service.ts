@@ -58,14 +58,6 @@ export class DirectConversationService {
 
   public getDisplayedConversation(userUID: string) {
 
-    // this.messages = this.afs.collection('messages', ref => ref.orderBy('createdAt', 'asc')).snapshotChanges().pipe(map(changes => {
-    //   return changes.map(a => {
-    //     const data = a.payload.doc.data() as Message;
-    //     data.id = a.payload.doc.id;
-    //     return data;
-    //   });
-    // }));
-
     this.displayedConversatons$ = this.afs.collection(
       'conversations'
       , ref=>ref.where('users_uid','array-contains', userUID)

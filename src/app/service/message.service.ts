@@ -17,12 +17,8 @@ export class MessageService {
   messages: Observable<Message[]>;
   messageDoc: AngularFirestoreDocument<Message>;
 
-  constructor(public afs:AngularFirestore) { 
-    //this.messages = this.afs.collection('messages').valueChanges();
+  constructor(public afs:AngularFirestore) {     
     this.messagesCollection = this.afs.collection('messages');
-
-    //console.log(this.messagesCollection);
-
     this.messages = this.afs.collection('messages', ref => ref.orderBy('createdAt', 'asc')).snapshotChanges().pipe(map(changes => {
       return changes.map(a => {
         const data = a.payload.doc.data() as Message;
