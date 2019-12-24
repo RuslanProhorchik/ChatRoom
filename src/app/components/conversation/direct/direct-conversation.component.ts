@@ -18,8 +18,7 @@ export class DirectConversationComponent implements OnInit {
     , private dcs: DirectConversationService
     , private uds: UserDetailService) { 
 
-      this.auth.getUserState()      
-      .subscribe(user => {
+      this.auth.getUserState().subscribe(user => {
         this.user = user;
                  
         this.dcs.getDisplayedConversation(user.uid).subscribe(conversations => {       
@@ -31,7 +30,7 @@ export class DirectConversationComponent implements OnInit {
 
             this.uds.getUsersDetail(uids).subscribe(details => {
               this.users = details;
-              console.log(this.users);
+              //console.log(this.users);
             });             
           }
         });        

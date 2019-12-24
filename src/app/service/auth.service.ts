@@ -16,19 +16,11 @@ export class AuthService {
   private eventAuthError = new BehaviorSubject<string>("");
   eventAuthError$ = this.eventAuthError.asObservable();
 
-  user: firebase.User;
-
   constructor(
     private afs: AngularFirestore,
     private afAuth: AngularFireAuth,
     private route: Router
   ) { 
-
-    this.getUserState()
-    .subscribe( user => {
-      this.user = user;
-    });
-
   }
   
   public redirectIfAuthorized(){      
@@ -39,7 +31,7 @@ export class AuthService {
         return loggedIn;
       })      
     ).subscribe(result => {
-      console.log('User is authorized - ' + result);
+      //console.log('User is authorized - ' + result);
       this.route.navigate(['/home']);
     });
   }
