@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IDirectConversationDisplay, UserDetail } from 'src/app/models';
+import { IDirectConversationDisplay, IUserDetail } from 'src/app/models';
 import { DirectConversationService } from 'src/app/service/direct-conversation.service';
-import { DirectConversationDisplay } from 'src/app/models/DirectConversationDisplay';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserDetailService } from 'src/app/service/user-detail.service';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-direct-conversation',
@@ -14,7 +12,7 @@ import { map } from 'rxjs/operators';
 export class DirectConversationComponent implements OnInit {
   user: firebase.User;
   conversations: IDirectConversationDisplay[];
-  //users: UserDetail[];
+  users: IUserDetail[];
   
   constructor(private auth: AuthService
     , private dcs: DirectConversationService
@@ -27,23 +25,32 @@ export class DirectConversationComponent implements OnInit {
         this.dcs.getDisplayedConversation(user.uid).subscribe(conversations => {       
            this.conversations = conversations;
               
-          this.conversations.forEach(element => {
-            element.user_name = this.uds.getUserInfo(element.user_uid).displayName;                 
-            console.log(element.user_name);
-          //       this.uds.getUserInfo(element.user_uid);
-             });
-          });
-        });              
+          if(this.conversations != null && this.conversations.length > 0){            
+
+            const uids = this.conversations.map(item => item.user_uid);
+
+            this.uds.getUsersDetail(uids).subscribe(details => {
+              this.users = details;
+              console.log(this.users);
+            });             
+          }
+        });        
+      });              
   }
 
   ngOnInit() {
   }
 
   public getDisplayConversationName(user_uid: string): string {
-    return user_uid;
+    if(this.users != null) {
+      const user = this.users.find(currentValue => currentValue.uid == user_uid);      
+      return (user === undefined)? user_uid : user.displayName;
+    }
+    else
+      return user_uid;    
   }
 
   public getDisplayConversationStatus(user_uid: string): string {
-    return 'NotActive';
+    return 'N/A';
   }
 }
