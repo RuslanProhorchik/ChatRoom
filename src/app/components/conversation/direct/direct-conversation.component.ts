@@ -38,4 +38,12 @@ export class DirectConversationComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  public getDisplayConversationName(user_uid: string): string {
+    return user_uid;
+  }
+
+  public getDisplayConversationStatus(user_uid: string): string {
+    return 'NotActive';
+  }
 }
