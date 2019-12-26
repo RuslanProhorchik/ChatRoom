@@ -12,7 +12,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserDetailService {
-  users$: Observable<IUserDetail[]>;      
+  users$: Observable<IUserDetail[]>;
+  user$: Observable<IUserDetail>;      
 
   constructor(public afs:AngularFirestore) {       
   }
@@ -30,4 +31,11 @@ export class UserDetailService {
 
       return this.users$;    
     }
+
+    public getUserDetail(uid: string) {
+      let userDetailDoc = this.afs.collection('users').doc<IUserDetail>(uid);
+      this.user$ = userDetailDoc.valueChanges()
+      return this.user$;
+     }
+ 
 }

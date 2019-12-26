@@ -4,7 +4,10 @@
         <button>+</button>
     </li>
 
-    <li *ngFor="let conversation of conversations" class="collection-item">
-        {{getDisplayConversationStatus(conversation.user_uid)}}+{{getDisplayConversationName(conversation.user_uid)}}
+    <li 
+    *ngFor="let conversation of conversations" 
+    class="collection-item" 
+    (click)="onChannelChanged($event, conversation)">
+        {{conversation.messages_uid}}+{{getDisplayConversationName(conversation.user_uid)}}
     </li>
 </ul>

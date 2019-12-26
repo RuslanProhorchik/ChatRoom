@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { IDirectConversationDisplay, IUserDetail } from 'src/app/models';
 import { DirectConversationService } from 'src/app/service/direct-conversation.service';
 import { AuthService } from 'src/app/service/auth.service';
@@ -13,17 +13,18 @@ export class DirectConversationComponent implements OnInit {
   user: firebase.User;
   conversations: IDirectConversationDisplay[];
   users: IUserDetail[];
-  
+
+  @Output() activeChannelUid = new EventEmitter<string>();
+    
   constructor(private auth: AuthService
     , private dcs: DirectConversationService
     , private uds: UserDetailService) { 
 
-      this.auth.getUserState()      
-      .subscribe(user => {
+      this.auth.getUserState().subscribe(user => {
         this.user = user;
                  
         this.dcs.getDisplayedConversation(user.uid).subscribe(conversations => {       
-           this.conversations = conversations;
+           this.conversations = conversations;           
               
           if(this.conversations != null && this.conversations.length > 0){            
 
@@ -31,7 +32,7 @@ export class DirectConversationComponent implements OnInit {
 
             this.uds.getUsersDetail(uids).subscribe(details => {
               this.users = details;
-              console.log(this.users);
+              //console.log(this.users);
             });             
           }
         });        
@@ -52,5 +53,9 @@ export class DirectConversationComponent implements OnInit {
 
   public getDisplayConversationStatus(user_uid: string): string {
     return 'N/A';
+  }
+
+  public onChannelChanged(event, conversation: IDirectConversationDisplay){
+    this.activeChannelUid.emit(conversation.messages_uid);
   }
 }

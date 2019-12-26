@@ -1,4 +1,4 @@
-<div *ngIf="messages?.length > 0; else noMessages ">        
+<div *ngIf="messages?.length > 0; else noMessages ">          
     <ul *ngFor="let message of messages" class="collection"> 
         <li class="collection-item"><strong>{{message.id}}</strong> {{message.text}}        
             <a href="#" class="secondary-content">

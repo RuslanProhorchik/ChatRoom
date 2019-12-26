@@ -1,5 +1,5 @@
 export interface StoredConversation {
     uid: string;
-    message_id: string;
+    messages_uid: string;
     users_uid: string[];
   }

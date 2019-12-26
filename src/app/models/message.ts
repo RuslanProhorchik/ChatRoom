@@ -1,5 +1,6 @@
-export interface Message {    
-    id?: string;
-    text?: string;
+export interface Message {
+    uid?: string;
+    text: string;
+    ownerUid?: string;    
     createdAt?: Date;
 }

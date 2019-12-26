@@ -1,14 +1,9 @@
 export interface IDirectConversationDisplay {
-    conversation_uid: string;
-    user_name: string;
-    user_uid: string;
-    isActive: boolean;
+    messages_uid: string;    
+    user_uid: string;    
   }
 
 export class DirectConversationDisplay implements IDirectConversationDisplay{
-    user_name: string;
     user_uid: string;
-    conversation_uid: string;    
-    name: string;
-    isActive: boolean;    
+    messages_uid: string;        
 }
