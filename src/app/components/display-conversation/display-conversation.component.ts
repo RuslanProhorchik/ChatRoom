@@ -8,8 +8,22 @@ import { Message } from 'src/app/models';
   styleUrls: ['./display-conversation.component.css']
 })
 export class DisplayConversationComponent implements OnInit {  
-  @Input() channelUid: string;
+  private _channelUid: string;
+  @Input() set channelUid(channelUid: string) {
+    this._channelUid = channelUid;
+
+    if(channelUid != '') {
+      this.isLoaded = true;
+    } else {
+      this.isLoaded = false;
+    }
+  }
+
+  get channelUid(): string {
+    return this._channelUid;
+  }
   
+
   isLoaded: boolean;
 
   constructor(private ms: MessageService) {     
@@ -18,38 +32,4 @@ export class DisplayConversationComponent implements OnInit {
   ngOnInit(): void {
     this.isLoaded = false;
   }
-
-  // public initSubcollection() {
-  //   let storage_uid: string = 'v7IX6FnwBC2NxYSDMadU';
-  //   this.ms.openMessagesStorage(storage_uid);
-  // }
-
-  // public addMessage(){
-  //   let storage_uid: string = 'v7IX6FnwBC2NxYSDMadU';    
-
-  //   let ms1: Message = {
-  //     text: 'Text1',
-  //     ownerUid: 'uCoCnXieuGXlP5Qs5a3c0SInr9s1',
-  //     createdAt: new Date(Date.now())
-  //   };
-    
-  //   let ms2: Message = {
-  //     text: 'Text2',
-  //     ownerUid: 'bf2mCC5QhZgiMdbSdNzsuhPlRXu2',
-  //     createdAt: new Date(Date.now())
-  //   };
-    
-  //   let ms3: Message = {
-  //     text: 'Text3',
-  //     ownerUid: 'uCoCnXieuGXlP5Qs5a3c0SInr9s1',
-  //     createdAt: new Date(Date.now())
-  //   };
-    
-    
-  //   this.ms.openMessagesStorage(storage_uid);
-  //   this.ms.addMessage(ms1);
-  //   this.ms.addMessage(ms2);
-  //   this.ms.addMessage(ms3);
-  // }
-
 }

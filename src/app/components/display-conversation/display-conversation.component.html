@@ -1,11 +1,13 @@
-<div class="container">    
-    <!--<app-message-list></app-message-list*ngIf="isLoaded">-->
-    <app-message-create [messages_uid]="channelUid"></app-message-create>        
+<div *ngIf="isLoaded" class="container">    
+    <app-message-list [messages_uid]="channelUid"></app-message-list>
+    <app-message-create [messages_uid]="channelUid"></app-message-create>
+           
 </div>
-<!--
 <div *ngIf="!isLoaded" class="container">   
-    <strong>No messages</strong>
-    <button (click)="addMessage()">Create message</button>
+    <div class="row center-align">
+        <strong>Select Direct Message or Channel conversation</strong>
+    </div>    
 </div>
--->
+{{channelUid}}
+
 

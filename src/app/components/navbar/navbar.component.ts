@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
     this.auth.getUserState()
     .subscribe( user => {
       this.user = user;
-    });
+    });    
   }
 
   public logout() {

@@ -33,7 +33,19 @@ export class MessageService {
     //console.log(this.messages);
   }
 
-  public getMessages() {
+  public getMessages(uid: string) {
+    this.messages = this.afs.collection('messages')
+    .doc(uid)
+    .collection('storedMessages', ref => ref.orderBy('createdAt', 'asc'))
+    .snapshotChanges()
+    .pipe(map(changes => {    
+      return changes.map(a => {    
+        const data = a.payload.doc.data() as Message;    
+        //data.id = a.payload.doc.id;    
+        return data;    
+      });
+    }));
+
     return this.messages;
   }
 
@@ -51,8 +63,8 @@ export class MessageService {
     // this.messageDoc.update(message);
   }
 
-  public openMessagesStorage(messages_uid: string) {
-    this.messagesCollection = this.afs.collection('messages').doc(messages_uid).collection('storedMessages');
+  public openMessagesStorage(uid: string) {
+    this.messagesCollection = this.afs.collection('messages').doc(uid).collection('storedMessages');
   }
 
   public isMessagesStorageOpened(): boolean {
