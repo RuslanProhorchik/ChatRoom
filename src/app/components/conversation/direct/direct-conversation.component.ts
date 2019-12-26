@@ -24,7 +24,7 @@ export class DirectConversationComponent implements OnInit {
         this.user = user;
                  
         this.dcs.getDisplayedConversation(user.uid).subscribe(conversations => {       
-           this.conversations = conversations;
+           this.conversations = conversations;           
               
           if(this.conversations != null && this.conversations.length > 0){            
 
@@ -55,7 +55,7 @@ export class DirectConversationComponent implements OnInit {
     return 'N/A';
   }
 
-  public onChannelChanged(){
-    this.activeChannelUid.emit('v7IX6FnwBC2NxYSDMadU');
+  public onChannelChanged(event, conversation: IDirectConversationDisplay){
+    this.activeChannelUid.emit(conversation.messages_uid);
   }
 }

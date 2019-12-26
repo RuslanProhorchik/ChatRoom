@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Message } from 'src/app/models/message';
 import { MessageService } from 'src/app/service/message.service';
 
@@ -9,14 +9,25 @@ import { MessageService } from 'src/app/service/message.service';
 })
 export class MessageCreateComponent implements OnInit {
 
+  private _messagesUid: string;
+
+  @Input('messages_uid') set messagesUid(messagesUid: string) {
+    this._messagesUid = messagesUid;
+
+    if(this.messageService.isMessagesStorageOpened()) {
+      this.messageService.closeMessagesStorage();
+    }
+
+    this.messageService.openMessagesStorage(messagesUid);
+  }
+
+  get messagesUid(): string { return this._messagesUid; }
+
   message: Message = {    
     text: ''    
   };
 
-  //@Output() messageAdded = new EventEmitter<string>();
-
   constructor(private messageService: MessageService) {
-
    }
 
   public ngOnInit() {
@@ -25,15 +36,23 @@ export class MessageCreateComponent implements OnInit {
   public onSubmit() {
     if(this.message.text != '') {
       this.message.createdAt = new Date(Date.now());
-      this.messageService.addMessage(this.message);
 
-      //this.messageAdded.emit(this.message.text);
-
+      this.addMessage(this.message);
       this.clearFields();      
     }
   }
 
   private clearFields(){
     this.message.text = '';
+  }
+
+  private addMessage(message: Message) {    
+    if(this.messagesUid != null) {    
+      if(!this.messageService.isMessagesStorageOpened()) {    
+        this.messageService.openMessagesStorage(this.messagesUid);          
+      }      
+      
+      this.messageService.addMessage(message);      
+    }
   }
 }

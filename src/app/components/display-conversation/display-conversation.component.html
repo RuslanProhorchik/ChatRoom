@@ -1,8 +1,6 @@
 <div class="container">    
     <!--<app-message-list></app-message-list*ngIf="isLoaded">-->
-    <app-message-create></app-message-create>
-    {{channelUid}}    
-    <button (click)="initSubcollection()">Init Subcollection</button>
+    <app-message-create [messages_uid]="channelUid"></app-message-create>        
 </div>
 <!--
 <div *ngIf="!isLoaded" class="container">   

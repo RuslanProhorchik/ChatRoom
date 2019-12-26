@@ -7,7 +7,7 @@
     <li 
     *ngFor="let conversation of conversations" 
     class="collection-item" 
-    (click)="onChannelChanged()">
-        {{getDisplayConversationStatus(conversation.user_uid)}}+{{getDisplayConversationName(conversation.user_uid)}}
+    (click)="onChannelChanged($event, conversation)">
+        {{conversation.messages_uid}}+{{getDisplayConversationName(conversation.user_uid)}}
     </li>
 </ul>

@@ -51,7 +51,15 @@ export class MessageService {
     // this.messageDoc.update(message);
   }
 
-  public createSubscription(messages_uid: string) {
+  public openMessagesStorage(messages_uid: string) {
     this.messagesCollection = this.afs.collection('messages').doc(messages_uid).collection('storedMessages');
+  }
+
+  public isMessagesStorageOpened(): boolean {
+    return (this.messagesCollection!=null)? true : false;
+  }
+
+  public closeMessagesStorage() {
+    this.messagesCollection = null;
   }
 }
