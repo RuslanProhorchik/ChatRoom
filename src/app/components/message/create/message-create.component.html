@@ -3,10 +3,12 @@
         <span class="card-title">Add message</span>
         <form (ngSubmit)="onSubmit()">
             <div class="row">
-                <div class="input-field col s10">
+                <div class="input-field col s8">
                     <input type="text" placeholder="Enter message" [(ngModel)]="message.text" name="text">                    
                 </div>
-                <input type="submit" value="Submit" class="btn">
+                <div class="input-field col s4 center-align">            
+                    <input type="submit" value="Submit" class="btn">            
+                </div>
                 <!--Debugging data: {{messagesUid}}-->
             </div>
         </form>
