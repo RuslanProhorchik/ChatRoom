@@ -41,7 +41,7 @@ export class MessageService {
     .pipe(map(changes => {    
       return changes.map(a => {    
         const data = a.payload.doc.data() as Message;    
-        //data.id = a.payload.doc.id;    
+        data.uid = a.payload.doc.id;    
         return data;    
       });
     }));
@@ -53,14 +53,16 @@ export class MessageService {
     this.messagesCollection.add(message);
   }
 
-  public deleteMessage(message: Message){
-    // this.messageDoc = this.afs.doc(`messages/${message.id}`);
-    // this.messageDoc.delete();
+  public deleteMessage(parent_uid: string, message: Message){
+    //console.log('Delete: ' + message + ' in messages storage ' + parent_uid);
+    this.messageDoc = this.afs.doc(`messages/${parent_uid}/storedMessages/${message.uid}`);
+    this.messageDoc.delete();    
   }
 
-  public updateMessage(message: Message){
-    // this.messageDoc = this.afs.doc(`messages/${message.id}`);
-    // this.messageDoc.update(message);
+  public updateMessage(parent_uid: string, message: Message){
+    //console.log('Update: ' + message)
+    this.messageDoc = this.afs.doc(`messages/${parent_uid}/storedMessages/${message.uid}`);
+    this.messageDoc.update(message);
   }
 
   public openMessagesStorage(uid: string) {

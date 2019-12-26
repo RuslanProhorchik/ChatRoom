@@ -52,9 +52,9 @@ export class MessageListComponent implements OnInit, OnDestroy {
     this.clearSubscriptions();
   }
 
-  public deleteMessage(event, message: Message){
+  public deleteMessage(event,message: Message){
     this.clearEditState();
-    this.ms.deleteMessage(message);
+    this.ms.deleteMessage(this._messagesUid, message);
   }
 
   public setEditState(message: Message){
@@ -63,7 +63,7 @@ export class MessageListComponent implements OnInit, OnDestroy {
   }
 
   public updateMessage(message: Message){
-    this.ms.updateMessage(message);
+    this.ms.updateMessage(this._messagesUid, message);
     this.clearEditState();
   }
 
