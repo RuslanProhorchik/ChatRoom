@@ -2,7 +2,7 @@
     <div class="nav-wrapper green">
         <a href="/" class="brand-logo center">Chat Room</a>
         <ul *ngIf="user" id="nav-mobile" class="right hide-on-med-and-down">            
-            <li><a href="#">{{user.displayName}}</a></li>
+            <li><a href="#" onclick="return false">{{user.displayName}}</a></li>
             <li><a href="#"(click)="logout()">Logout</a></li>
         </ul>
         <ul *ngIf="!user" id="nav-mobile" class="right hide-on-med-and-down">            
