@@ -3,13 +3,13 @@
         <li class="collection-item" [class.right-align]="isDisplayAsOwner(message)">                                
             <!--<strong>{{message.ownerUid}}</strong>-->
             {{message.text}}                
-            <a href="#!" class="secondary-content">                                        
-                <i *ngIf="!(editState && messageToEdit.id == message.id)" (click)="setEditState(message)" class="fa fa-pencil fa-fw"></i>                                                        
-                <i *ngIf="editState && messageToEdit.id == message.id" (click)="clearEditState()" class="fa fa-compress fa-fw"></i>                                        
-                <i *ngIf="!(editState && messageToEdit.id == message.id)" (click)="deleteMessage($event, message)" class="fa fa-trash-o fa-fw"></i>                            
-            </a>            
+            <ul class="secondary-content">                                        
+                <li *ngIf="!(editState && messageToEdit.uid == message.uid)" (click)="setEditState(message)" class="fa fa-pencil fa-fw"></li>                                                        
+                <li *ngIf="editState && messageToEdit.uid == message.uid" (click)="clearEditState()" class="fa fa-compress fa-fw"></li>                                        
+                <li *ngIf="!(editState && messageToEdit.uid == message.uid)" (click)="deleteMessage($event, message)" class="fa fa-trash-o fa-fw"></li>                            
+            </ul>            
 
-            <!--<div *ngIf="editState && messageToEdit.id == message.id">
+            <div *ngIf="editState && messageToEdit.uid == message.uid">
                 <form (ngSubmit)="updateMessage(message)">
                     <div class="row valign-wrapper center-align">
                         <div class="col s8">                                
@@ -25,7 +25,7 @@
                         </div>                                                                                                                            
                     </div>
                 </form>        
-            </div>-->
+            </div>
         </li>        
     </ul>    
 </div>    
