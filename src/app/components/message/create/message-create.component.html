@@ -4,7 +4,9 @@
         <form (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="input-field col s8">
-                    <input type="text" placeholder="Enter message" [(ngModel)]="message.text" name="text">                    
+                    <!--<input type="text" placeholder="Enter message" [(ngModel)]="message.text" name="text">-->
+                    <textarea id="enterMessageTextArea" class="materialize-textarea"[(ngModel)]="message.text" name="text"></textarea>          
+                    <label for="enterMessageTextArea">Enter message</label>
                 </div>
                 <div class="input-field col s4 center-align">            
                     <input type="submit" value="Submit" class="btn">            

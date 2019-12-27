@@ -3,6 +3,7 @@ import { MessageService } from '../../../service/message.service';
 import { Message } from '../../../models/message';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-message-list',
@@ -11,9 +12,12 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class MessageListComponent implements OnInit, OnDestroy {
     
+  ownerUid: string;  
   private unsubscribe: Subject<void> = new Subject();
 
-  constructor(private ms: MessageService) {     
+  constructor(
+    private ms: MessageService,
+    private auth: AuthService) {     
   }
 
   private _messagesUid: string;  
@@ -46,6 +50,13 @@ export class MessageListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.editState = false;
+
+    this.auth.getUserState()
+    .subscribe(user => {
+      this.ownerUid = user.uid;
+
+      console.log('Owner Uid' + this.ownerUid);
+    });    
   }
 
   ngOnDestroy(): void {
@@ -77,4 +88,8 @@ export class MessageListComponent implements OnInit, OnDestroy {
     this.unsubscribe.complete();
     console.log('unsubscribe executed');
   }  
+
+  isDisplayAsOwner(message: Message): boolean {    
+    return (this.ownerUid === message.ownerUid)? true: false;
+  }
 }
