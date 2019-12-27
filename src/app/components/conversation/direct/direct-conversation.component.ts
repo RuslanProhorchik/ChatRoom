@@ -15,7 +15,8 @@ export class DirectConversationComponent implements OnInit {
   users: IUserDetail[];
 
   @Output() activeChannelUid = new EventEmitter<string>();
-    
+  _activeChannelUid: string;
+
   constructor(private auth: AuthService
     , private dcs: DirectConversationService
     , private uds: UserDetailService) { 
@@ -40,6 +41,7 @@ export class DirectConversationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._activeChannelUid = null;
   }
 
   public getDisplayConversationName(user_uid: string): string {
@@ -56,6 +58,11 @@ export class DirectConversationComponent implements OnInit {
   }
 
   public onChannelChanged(event, conversation: IDirectConversationDisplay){
+    this._activeChannelUid = conversation.messages_uid;
     this.activeChannelUid.emit(conversation.messages_uid);
+  }
+
+  public isActiveConversation(conversation: IDirectConversationDisplay) {
+    return (this._activeChannelUid === conversation.messages_uid)? true : false;
   }
 }
