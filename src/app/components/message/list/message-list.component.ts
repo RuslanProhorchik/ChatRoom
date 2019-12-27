@@ -89,7 +89,15 @@ export class MessageListComponent implements OnInit, OnDestroy {
     console.log('unsubscribe executed');
   }  
 
-  isDisplayAsOwner(message: Message): boolean {    
+  isDisplayMessageAsOwner(message: Message): boolean {    
     return (this.ownerUid === message.ownerUid)? true: false;
+  }
+
+  isNeedDisplayUserName() {
+    return true;
+  }
+
+  getDisplayedUserName(message: Message){
+    return message.ownerUid;
   }
 }
