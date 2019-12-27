@@ -1,7 +1,7 @@
 <div *ngIf="messages?.length > 0; else noMessages ">          
     <ul *ngFor="let message of messages" class="collection"> 
         <li class="collection-item" [class.right-align]="isDisplayMessageAsOwner(message)">                                
-        <span *ngIf="isNeedDisplayUserName()" class="message-list-owner-name">{{getDisplayedUserName(message)}}</span>
+        <span *ngIf="isNeedDisplayUserName(message)" class="message-list-owner-name">{{getDisplayedUserName(message)}}</span>
             {{message.text}}                
             <ul class="secondary-content">                                        
                 <li *ngIf="!(editState && messageToEdit.uid == message.uid)" (click)="setEditState(message)" class="fa fa-pencil fa-fw"></li>                                                        

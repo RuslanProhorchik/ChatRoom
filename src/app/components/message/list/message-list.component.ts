@@ -4,6 +4,8 @@ import { Message } from '../../../models/message';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth.service';
+import { IUserDetail } from 'src/app/models';
+import { UserDetailService } from 'src/app/service/user-detail.service';
 
 @Component({
   selector: 'app-message-list',
@@ -12,12 +14,15 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class MessageListComponent implements OnInit, OnDestroy {
     
-  ownerUid: string;  
+  ownerUid: string;
+  users: IUserDetail[];
+  
   private unsubscribe: Subject<void> = new Subject();
 
   constructor(
     private ms: MessageService,
-    private auth: AuthService) {     
+    private auth: AuthService,
+    private uds: UserDetailService) {     
   }
 
   private _messagesUid: string;  
@@ -35,7 +40,20 @@ export class MessageListComponent implements OnInit, OnDestroy {
     this.ms.getMessages(messagesUid)
     .pipe(takeUntil(this.unsubscribe))
     .subscribe((messages) => {      
-      this.messages = messages;      
+      this.messages = messages; 
+      
+      const users_uids = this.messages.map(item => item.ownerUid).filter((v, i, a) => a.indexOf(v) === i);
+      console.log('Loaded owner uids: ' + users_uids);
+
+      if((users_uids != null) && (users_uids.length > 0)) {
+        this.uds.getUsersDetail(users_uids)
+        .pipe(takeUntil(this.unsubscribe))
+        .subscribe(details => {
+          this.users = details;
+
+          console.log(this.users);
+        });
+      }
     },
     (error) => console.error(error),
     () => console.log('[takeUntil] complete')    
@@ -54,8 +72,7 @@ export class MessageListComponent implements OnInit, OnDestroy {
     this.auth.getUserState()
     .subscribe(user => {
       this.ownerUid = user.uid;
-
-      console.log('Owner Uid' + this.ownerUid);
+      //console.log('Owner Uid' + this.ownerUid);
     });    
   }
 
@@ -93,11 +110,15 @@ export class MessageListComponent implements OnInit, OnDestroy {
     return (this.ownerUid === message.ownerUid)? true: false;
   }
 
-  isNeedDisplayUserName() {
-    return true;
+  isNeedDisplayUserName(message: Message) {
+    return (this.ownerUid === message.ownerUid)? false : true;
   }
 
   getDisplayedUserName(message: Message){
-    return message.ownerUid;
+    if(this.users.length > 0) {
+      return this.users.find(value => value.uid === message.ownerUid).displayName;
+    } else {
+      return message.ownerUid;
+    }    
   }
 }
