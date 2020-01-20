@@ -1,8 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { IDirectConversationDisplay, IUserDetail } from 'src/app/models';
+import { IDirectConversationDisplay, IUserDetail, DirectConversationDisplay } from 'src/app/models';
 import { DirectConversationService } from 'src/app/service/direct-conversation.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { UserDetailService } from 'src/app/service/user-detail.service';
+import { MessageService } from 'src/app/service/message.service';
 
 @Component({
   selector: 'app-direct-conversation',
@@ -19,7 +20,8 @@ export class DirectConversationComponent implements OnInit {
 
   constructor(private auth: AuthService
     , private dcs: DirectConversationService
-    , private uds: UserDetailService) { 
+    , private uds: UserDetailService
+    , private ms: MessageService) { 
 
       this.auth.getUserState().subscribe(user => {
         this.user = user;
@@ -64,5 +66,46 @@ export class DirectConversationComponent implements OnInit {
 
   public isActiveConversation(conversation: IDirectConversationDisplay) {
     return (this._activeChannelUid === conversation.messages_uid)? true : false;
+  }
+
+  public onAddDirectConversation(event) {
+
+    // Create a new messages storage    
+    let msUID: string = this.ms.createMessagesStorage();
+
+    if(msUID === null) {
+      console.log('createMessagesStorage - Failed');
+    } else {
+      console.log('createMessagesStorage - ', msUID);
+    }
+
+    
+        
+    // Create a new conversation    
+    //let partnerUID: string = 's9QKAQKp3SWpZsU308Dfx6LwL4F3';
+    //let ownerUID: string = this.user.uid;
+
+    //this.dcs.createConversation(ownerUID, partnerUID, msUID);
+
+    // Set active a created conversation
+
+    //user_uid: string;
+    //messages_uid: string;        
+    
+    //let newConversation: IDirectConversationDisplay = new DirectConversationDisplay();
+    //newConversation.user_uid = partnerUID;
+    //newConversation.messages_uid = msUID;
+
+    //console.log('Created converssation ', newConversation);    
+    //this.onChannelChanged(event, newConversation);
+
+    //this.dcs.createConversation(ownerUID, partnerUID).subscribe(data => {
+      //messages_uid: string;    
+      //user_uid: string;      
+      //this.onChannelChanged(event, data);
+    //},
+    //err => {
+//      console.log("Add new direct conversation failed: " + err);
+  //  });    
   }
 }

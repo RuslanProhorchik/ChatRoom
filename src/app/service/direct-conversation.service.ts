@@ -46,5 +46,32 @@ export class DirectConversationService {
       );
       
     return this.displayedConversatons$;
+  
+  }
+
+  public createConversation(ownerUID: string, partnerUID: string, messagesStoragesUID: string) {
+    let retValue: string = null;
+    
+    console.log('createConversation ownerUID: ', ownerUID);
+    console.log('createConversation partnerUID: ', partnerUID);
+    console.log('createConversation messagesStoragesUID: ', messagesStoragesUID);
+
+    this.afs.collection('conversations').add({
+      messages_uid: messagesStoragesUID,     
+      users_uid: [ownerUID, partnerUID]
+    })
+   .then(function(docRef) {
+
+     retValue = docRef.id;            
+     console.log("Document written with ID: ", docRef.id);
+
+   })
+   .catch(function(error) {
+       console.error("Error adding document: ", error);
+       retValue = null;
+   });
+
+   console.log('createConversation conversation_uid ', retValue);
+   return retValue;    
   }
 }

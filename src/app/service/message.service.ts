@@ -76,4 +76,28 @@ export class MessageService {
   public closeMessagesStorage() {
     this.messagesCollection = null;
   }
+
+  public createMessagesStorage(): string {
+    
+    let retValue: string = null;
+        
+    this.afs.collection('messages').add({
+      messages_uid: null,     
+      storedMessages: null
+    })
+   .then(function(docRef) {    
+    
+    retValue = docRef.id;        
+                            
+    //console.log("messagesStorage written with ID: ", docRef.id);
+   })
+   .catch(function(error) {
+       //console.error("Error adding messagesStorage: ", error);
+       
+       retValue = null;
+   });
+
+   //console.log('createConversation conversation_uid ', retValue);
+   return retValue;        
+  }
 }
