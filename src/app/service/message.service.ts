@@ -77,27 +77,28 @@ export class MessageService {
     this.messagesCollection = null;
   }
 
-  public createMessagesStorage(): string {
+  public createMessagesStorage(): Observable<string> {    
     
-    let retValue: string = null;
-        
-    this.afs.collection('messages').add({
-      messages_uid: null,     
-      storedMessages: null
-    })
-   .then(function(docRef) {    
-    
-    retValue = docRef.id;        
-                            
-    //console.log("messagesStorage written with ID: ", docRef.id);
-   })
-   .catch(function(error) {
-       //console.error("Error adding messagesStorage: ", error);
-       
-       retValue = null;
-   });
-
-   //console.log('createConversation conversation_uid ', retValue);
-   return retValue;        
+    return new Observable<string>((observer) => {      
+      this.afs.collection('messages').add({                        
+        messages_uid: null
+        })
+        .then(function(docRef) {            
+          docRef.update({
+            messages_uid: docRef.id
+          })
+          .then(()=>{
+            observer.next(docRef.id);
+            observer.complete();
+            //console.log(('Set ID to messages storage - ok.'));
+          })
+          .catch(()=>{
+            console.log('Set ID to messages storage - Error. ');            
+          });
+        })
+        .catch(() => {
+          observer.error('Create messages storage - Error. ');
+         })      
+    });             
   }
 }

@@ -9,6 +9,7 @@ import {
 
 import { map } from 'rxjs/operators';
 import { DirectConversationDisplay } from '../models/DirectConversationDisplay';
+import { MessageService } from './message.service';
 
 
 @Injectable({
@@ -18,7 +19,8 @@ export class DirectConversationService {
   directConvers: Observable<DirectConversation[]>;
   displayedConversatons$: Observable<IDirectConversationDisplay[]>;
 
-  constructor(private afs: AngularFirestore) {    
+  constructor(private afs: AngularFirestore
+    , private ms: MessageService) {    
   }
 
   public getConversations(userUID: string) {
@@ -49,29 +51,30 @@ export class DirectConversationService {
   
   }
 
-  public createConversation(ownerUID: string, partnerUID: string, messagesStoragesUID: string) {
-    let retValue: string = null;
-    
-    console.log('createConversation ownerUID: ', ownerUID);
-    console.log('createConversation partnerUID: ', partnerUID);
-    console.log('createConversation messagesStoragesUID: ', messagesStoragesUID);
-
-    this.afs.collection('conversations').add({
-      messages_uid: messagesStoragesUID,     
-      users_uid: [ownerUID, partnerUID]
-    })
-   .then(function(docRef) {
-
-     retValue = docRef.id;            
-     console.log("Document written with ID: ", docRef.id);
-
-   })
-   .catch(function(error) {
-       console.error("Error adding document: ", error);
-       retValue = null;
-   });
-
-   console.log('createConversation conversation_uid ', retValue);
-   return retValue;    
+  public createConversation(ownerUID: string
+    , partnerUID: string): Observable<string> {
+      
+      return new Observable<string>((observer) => {
+        
+        this.ms.createMessagesStorage().subscribe(
+          data => {
+            this.afs.collection('conversations').add({                
+              messages_uid: data,                                    
+              users_uid: [ownerUID, partnerUID]
+              })
+              .then(function(docRef) {
+                console.log("Conversation created with ID: ", docRef.id);
+                observer.next(docRef.id);
+                observer.complete();
+              })
+              .catch(() => {
+                observer.error('Create conversation - Error. ');
+              })      
+          },
+          error => {
+            observer.error('Create conversation - Error. Message storage is not created');
+          }          
+        );              
+      });      
   }
 }
